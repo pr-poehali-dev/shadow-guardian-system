@@ -10,6 +10,7 @@ import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { BlockedScreen } from "@/components/blocked-screen"
 
 export default function Index() {
   const [blocked, setBlocked] = useState(false)
@@ -26,27 +27,7 @@ export default function Index() {
 
   return (
     <div className="dark">
-      {blocked && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 9999,
-            background: "rgba(0,0,0,0.92)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 64, marginBottom: 16 }}>🔒</div>
-            <h1 style={{ color: "#ef4444", fontSize: 48, fontWeight: 800, letterSpacing: 2, margin: 0 }}>
-              ВЫ ЗАБЛОКИРОВАНЫ
-            </h1>
-            <p style={{ color: "#888", marginTop: 12, fontSize: 18 }}>Доступ к этому разделу ограничен</p>
-          </div>
-        </div>
-      )}
+      {blocked && <BlockedScreen />}
       <Navbar />
       <main>
         <Hero3D />
